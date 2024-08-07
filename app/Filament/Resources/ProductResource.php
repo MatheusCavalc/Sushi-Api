@@ -17,7 +17,11 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $navigationGroup = 'Store Management';
+
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     public static function form(Form $form): Form
     {
@@ -30,8 +34,7 @@ class ProductResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->image(),
-                Forms\Components\FileUpload::make('link_image')
-                    ->image(),
+                Forms\Components\TextInput::make('link_image'),
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('price')
@@ -45,7 +48,8 @@ class ProductResource extends Resource
                 Forms\Components\Toggle::make('on_sale')
                     ->required(),
                 Forms\Components\TextInput::make('sale_price')
-                    ->numeric(),
+                    ->numeric()
+                    ->prefix('$'),
             ]);
     }
 
@@ -66,10 +70,9 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('quantity')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('on_sale')
-                    ->boolean(),
+                Tables\Columns\ToggleColumn::make('on_sale'),
                 Tables\Columns\TextColumn::make('sale_price')
-                    ->numeric()
+                    ->money()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

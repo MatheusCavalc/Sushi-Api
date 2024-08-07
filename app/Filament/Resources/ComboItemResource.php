@@ -17,7 +17,11 @@ class ComboItemResource extends Resource
 {
     protected static ?string $model = ComboItem::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 4;
+
+    protected static ?string $navigationGroup = 'Store Management';
+
+    protected static ?string $navigationIcon = 'heroicon-o-bars-3-center-left';
 
     public static function form(Form $form): Form
     {

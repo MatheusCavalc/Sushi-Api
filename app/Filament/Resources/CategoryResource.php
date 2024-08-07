@@ -17,6 +17,10 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $navigationGroup = 'Store Management';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -30,8 +34,7 @@ class CategoryResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image(),
-                Forms\Components\FileUpload::make('link_image')
-                    ->image(),
+                Forms\Components\TextInput::make('link_image'),
             ]);
     }
 
