@@ -32,8 +32,8 @@ class ProductResource extends Resource
                 Forms\Components\Select::make('category_id')
                     ->relationship('category', 'name')
                     ->required(),
-                Forms\Components\FileUpload::make('image')
-                    ->image(),
+                //Forms\Components\FileUpload::make('image')
+                //    ->image(),
                 Forms\Components\TextInput::make('link_image'),
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
@@ -62,7 +62,7 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('category.name')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\ImageColumn::make('image'),
+                //Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\ImageColumn::make('link_image'),
                 Tables\Columns\TextColumn::make('price')
                     ->money()
