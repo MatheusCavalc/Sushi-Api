@@ -17,9 +17,11 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
+    protected static ?string $modelLabel = 'Categoria';
+
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationGroup = 'Store Management';
+    protected static ?string $navigationGroup = 'Gestão de Loja';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -28,13 +30,16 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nome')
                     ->required(),
                 Forms\Components\Textarea::make('description')
+                    ->label('Descrição')
                     ->required()
                     ->columnSpanFull(),
                 //Forms\Components\FileUpload::make('image')
                 //    ->image(),
-                Forms\Components\TextInput::make('link_image'),
+                Forms\Components\TextInput::make('link_image')
+                    ->label('Link da Imagem'),
             ]);
     }
 
@@ -43,9 +48,11 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
                     ->searchable(),
                 //Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\ImageColumn::make('link_image'),
+                Tables\Columns\ImageColumn::make('link_image')
+                    ->label('Link da Imagem'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

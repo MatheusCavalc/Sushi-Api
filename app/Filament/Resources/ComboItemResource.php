@@ -17,9 +17,11 @@ class ComboItemResource extends Resource
 {
     protected static ?string $model = ComboItem::class;
 
+    protected static ?string $modelLabel = 'Itens dos Combos';
+
     protected static ?int $navigationSort = 4;
 
-    protected static ?string $navigationGroup = 'Store Management';
+    protected static ?string $navigationGroup = 'Gestão de Loja';
 
     protected static ?string $navigationIcon = 'heroicon-o-bars-3-center-left';
 
@@ -28,8 +30,10 @@ class ComboItemResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nome')
                     ->required(),
                 Forms\Components\TextInput::make('price')
+                    ->label('Preço')
                     ->required()
                     ->numeric()
                     ->prefix('$'),
@@ -41,8 +45,10 @@ class ComboItemResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
+                    ->label('Preço')
                     ->money()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

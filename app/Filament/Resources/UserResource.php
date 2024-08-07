@@ -17,9 +17,11 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
+    protected static ?string $modelLabel = 'Usuário';
+
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $navigationGroup = 'Users/Admins';
+    protected static ?string $navigationGroup = 'Usuários/Admins';
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
@@ -28,12 +30,16 @@ class UserResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nome')
                     ->required(),
                 Forms\Components\TextInput::make('email')
+                    ->label('Email')
                     ->email()
                     ->required(),
-                Forms\Components\DateTimePicker::make('email_verified_at'),
+                Forms\Components\DateTimePicker::make('email_verified_at')
+                    ->label('Email verificado em'),
                 Forms\Components\TextInput::make('password')
+                    ->label('Senha')
                     ->password()
                     ->required(),
             ]);
@@ -44,10 +50,13 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                    ->label('Email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email_verified_at')
+                    ->label('Email verificado em')
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

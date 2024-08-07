@@ -7,6 +7,7 @@ use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
+use App\Models\Category;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,9 +18,11 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
+    protected static ?string $modelLabel = 'Prato/Produto';
+
     protected static ?int $navigationSort = 3;
 
-    protected static ?string $navigationGroup = 'Store Management';
+    protected static ?string $navigationGroup = 'Gestão de Loja';
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
@@ -28,27 +31,35 @@ class ProductResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nome')
                     ->required(),
                 Forms\Components\Select::make('category_id')
-                    ->relationship('category', 'name')
+                    ->options(Category::all()->pluck('name', 'id'))
                     ->required()
+                    ->label('Categoria')
                     ->searchable(),
                 //Forms\Components\FileUpload::make('image')
                 //    ->image(),
-                Forms\Components\TextInput::make('link_image'),
+                Forms\Components\TextInput::make('link_image')
+                    ->label('Link da Imagem'),
                 Forms\Components\Textarea::make('description')
+                    ->label('Descrição')
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('price')
+                    ->label('Preço')
                     ->required()
                     ->numeric()
                     ->prefix('$'),
                 Forms\Components\TextInput::make('quantity')
+                    ->label('Quantidade')
                     ->required()
                     ->numeric()
                     ->default(0),
                 Forms\Components\Toggle::make('on_sale')
+                    ->label('Em Promoção')
                     ->required(),
                 Forms\Components\TextInput::make('sale_price')
+                    ->label('Preço em Promoção')
                     ->numeric()
                     ->prefix('$'),
             ]);
@@ -59,20 +70,27 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('category.name')
+                    ->label('Categoria')
                     ->numeric()
                     ->sortable(),
                 //Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\ImageColumn::make('link_image'),
+                Tables\Columns\ImageColumn::make('link_image')
+                    ->label('Link da Imagem'),
                 Tables\Columns\TextColumn::make('price')
+                    ->label('Preço')
                     ->money()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('quantity')
+                    ->label('Quantidade')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\ToggleColumn::make('on_sale'),
+                Tables\Columns\ToggleColumn::make('on_sale')
+                    ->label('Em Promoção'),
                 Tables\Columns\TextColumn::make('sale_price')
+                    ->label('Preço em Promoção')
                     ->money()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
