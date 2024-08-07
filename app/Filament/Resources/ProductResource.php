@@ -31,7 +31,8 @@ class ProductResource extends Resource
                     ->required(),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category', 'name')
-                    ->required(),
+                    ->required()
+                    ->searchable(),
                 //Forms\Components\FileUpload::make('image')
                 //    ->image(),
                 Forms\Components\TextInput::make('link_image'),
