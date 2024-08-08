@@ -74,8 +74,7 @@ class ProductResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('category.name')
                     ->label('Categoria')
-                    ->numeric()
-                    ->sortable(),
+                    ->searchable(),
                 //Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\ImageColumn::make('link_image')
                     ->label('Link da Imagem'),
@@ -85,8 +84,7 @@ class ProductResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('quantity')
                     ->label('Quantidade')
-                    ->numeric()
-                    ->sortable(),
+                    ->numeric(),
                 Tables\Columns\ToggleColumn::make('on_sale')
                     ->label('Em Promoção'),
                 Tables\Columns\TextColumn::make('sale_price')
