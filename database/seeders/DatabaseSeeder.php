@@ -26,22 +26,22 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $categories = [
-            ['name' => 'Combos a partir de 1 Real a peça!', 'description' => 'description'],
-            ['name' => 'Combo Plus da Hora!', 'description' => 'description'],
-            ['name' => 'Temakis', 'description' => 'description'], //3
-            ['name' => 'Hot Holl', 'description' => 'description'],
-            ['name' => 'Promo!', 'description' => 'description'],
-            ['name' => 'Jhow (4 unidades)', 'description' => 'description'], //6
-            ['name' => 'Niguiri (5 unidades)', 'description' => 'description'],
-            ['name' => 'Sashimi (5 unidades)', 'description' => 'description'],
-            ['name' => 'Uramaki (4 Unidades)', 'description' => 'description'],
-            ['name' => 'Hossomaki (4 Unidades)', 'description' => 'description'], //10
-            ['name' => 'Combos Especiais', 'description' => 'description'],
-            ['name' => 'Combinado Aky', 'description' => 'description'], //12
-            ['name' => 'Burgue Sushi', 'description' => 'description'],
-            ['name' => 'Sushi Glass', 'description' => 'description'],
-            ['name' => 'Dog Holl', 'description' => 'description'], //15
-            ['name' => 'Complementos', 'description' => 'description'],
+            ['name' => 'Combos a partir de 1 Real a peça!', 'description' => 'description', 'location' => null,],
+            ['name' => 'Combo Plus da Hora!', 'description' => 'description', 'location' => null,],
+            ['name' => 'Temakis', 'description' => 'description', 'location' => null,], //3
+            ['name' => 'Hot Holl', 'description' => 'description', 'location' => null,],
+            ['name' => 'Promo!', 'description' => 'description', 'location' => null,],
+            ['name' => 'Jhow (4 unidades)', 'description' => 'description', 'location' => null,], //6
+            ['name' => 'Niguiri (5 unidades)', 'description' => 'description', 'location' => null,],
+            ['name' => 'Sashimi (5 unidades)', 'description' => 'description', 'location' => null,],
+            ['name' => 'Uramaki (4 Unidades)', 'description' => 'description', 'location' => null,],
+            ['name' => 'Hossomaki (4 Unidades)', 'description' => 'description', 'location' => null,], //10
+            ['name' => 'Combos Especiais', 'description' => 'description', 'location' => null,],
+            ['name' => 'Combinado Aky', 'description' => 'description', 'location' => null,], //12
+            ['name' => 'Burgue Sushi', 'description' => 'description', 'location' => null,],
+            ['name' => 'Sushi Glass', 'description' => 'description', 'location' => null,],
+            ['name' => 'Dog Holl', 'description' => 'description', 'location' => null,], //15
+            ['name' => 'Complementos', 'description' => 'description', 'location' => null,],
         ];
 
         foreach ($categories as $category) {

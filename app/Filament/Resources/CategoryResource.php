@@ -40,6 +40,9 @@ class CategoryResource extends Resource
                 //    ->image(),
                 Forms\Components\TextInput::make('link_image')
                     ->label('Link da Imagem'),
+                Forms\Components\TextInput::make('location')
+                    ->label('Location')
+                    ->readonly(),
             ]);
     }
 
