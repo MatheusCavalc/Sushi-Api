@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('link_image')->nullable();
             $table->text('description')->nullable();
-            $table->decimal('price', 8, 2);
+            $table->string('price');
             $table->integer('quantity')->default(0);
             $table->boolean('on_sale')->default(false); // Produto em promoção
-            $table->decimal('sale_price', 8, 2)->nullable(); // Preço de venda durante a promoção
+            $table->string('sale_price')->nullable(); // Preço de venda durante a promoção
             $table->timestamps();
         });
     }
