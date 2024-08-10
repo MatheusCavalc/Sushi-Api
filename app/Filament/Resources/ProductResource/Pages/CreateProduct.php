@@ -12,6 +12,11 @@ class CreateProduct extends CreateRecord
 
     protected ?string $heading = 'Criar Produto';
 
+    protected function getCreatedNotificationTitle(): ?string
+    {
+        return 'Produto criado';
+    }
+
     protected function getFormActions(): array
     {
         return [

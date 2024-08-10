@@ -35,6 +35,7 @@ class EditCategory extends EditRecord
                 ->modalDescription('Tem certeza de que deseja excluir esta categoria? Isto não pode ser desfeito.')
                 ->modalSubmitActionLabel('Sim, excluir')
                 ->modalCancelActionLabel('Cancelar')
+                ->successNotificationTitle('Categoria excluída')
         ];
     }
 

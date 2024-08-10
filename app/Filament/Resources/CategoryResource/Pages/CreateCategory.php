@@ -12,6 +12,11 @@ class CreateCategory extends CreateRecord
 
     protected ?string $heading = 'Criar Categoria';
 
+    protected function getCreatedNotificationTitle(): ?string
+    {
+        return 'Categoria criada';
+    }
+
     protected function getFormActions(): array
     {
         return [

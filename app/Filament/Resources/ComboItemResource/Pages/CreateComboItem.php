@@ -12,6 +12,11 @@ class CreateComboItem extends CreateRecord
 
     protected ?string $heading = 'Criar Item';
 
+    protected function getCreatedNotificationTitle(): ?string
+    {
+        return 'Item criado';
+    }
+
     protected function getFormActions(): array
     {
         return [

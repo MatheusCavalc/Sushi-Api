@@ -33,7 +33,8 @@ class EditComboItem extends EditRecord
                 ->modalHeading('Excluir item')
                 ->modalDescription('Tem certeza de que deseja excluir esta item? Isto não pode ser desfeito.')
                 ->modalSubmitActionLabel('Sim, excluir')
-                ->modalCancelActionLabel('Cancelar'),
+                ->modalCancelActionLabel('Cancelar')
+                ->successNotificationTitle('Item excluído'),
         ];
     }
 

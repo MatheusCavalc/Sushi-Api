@@ -33,7 +33,8 @@ class EditProduct extends EditRecord
                 ->modalHeading('Excluir produto')
                 ->modalDescription('Tem certeza de que deseja excluir este produto? Isto não pode ser desfeito.')
                 ->modalSubmitActionLabel('Sim, excluir')
-                ->modalCancelActionLabel('Cancelar'),
+                ->modalCancelActionLabel('Cancelar')
+                ->successNotificationTitle('Produto excluído'),
         ];
     }
 
