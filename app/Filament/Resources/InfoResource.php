@@ -55,7 +55,8 @@ class InfoResource extends Resource
                     ->valueLabel('Link')
                     ->reorderable()
                     ->columnSpanFull()
-                    ->label('Links das Redes Sociais'),
+                    ->label('Links das Redes Sociais')
+                    ->addActionLabel('Adicionar Rede Social'),
             ]);
     }
 
@@ -88,8 +89,10 @@ class InfoResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()
+                    ->label('Visualizar'),
+                Tables\Actions\EditAction::make()
+                    ->label('Editar'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

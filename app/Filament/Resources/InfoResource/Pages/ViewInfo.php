@@ -10,10 +10,12 @@ class ViewInfo extends ViewRecord
 {
     protected static string $resource = InfoResource::class;
 
+    protected ?string $heading = 'Visualizar Informações';
+
     protected function getHeaderActions(): array
     {
         return [
-            Actions\EditAction::make(),
+            Actions\EditAction::make()->label('Editar'),
         ];
     }
 }

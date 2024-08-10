@@ -10,6 +10,8 @@ class ListInfos extends ListRecords
 {
     protected static string $resource = InfoResource::class;
 
+    protected ?string $heading = 'Informações';
+
     protected function getHeaderActions(): array
     {
         return [

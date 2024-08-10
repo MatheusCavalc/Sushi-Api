@@ -7,6 +7,7 @@ use App\Filament\Resources\ComboItemResource\RelationManagers;
 use App\Models\ComboItem;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -64,8 +65,22 @@ class ComboItemResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()
+                    ->label('Visualizar'),
+                Tables\Actions\EditAction::make()
+                    ->label('Editar'),
+                Tables\Actions\DeleteAction::make()
+                    ->label('Excluir')
+                    ->modalHeading('Excluir item')
+                    ->modalDescription('Tem certeza de que deseja excluir esta item? Isto não pode ser desfeito.')
+                    ->modalSubmitActionLabel('Sim, excluir')
+                    ->modalCancelActionLabel('Cancelar')
+                    ->successNotification(
+                        Notification::make()
+                            ->success()
+                            ->title('Item excluído')
+                            ->body('O item foi excluído com sucesso'),
+                    ),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

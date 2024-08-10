@@ -10,10 +10,12 @@ class ViewUser extends ViewRecord
 {
     protected static string $resource = UserResource::class;
 
+    protected ?string $heading = 'Visualizar Usuário';
+
     protected function getHeaderActions(): array
     {
         return [
-            Actions\EditAction::make(),
+            Actions\EditAction::make()->label('Editar'),
         ];
     }
 }

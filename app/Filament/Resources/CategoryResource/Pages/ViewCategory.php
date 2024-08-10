@@ -10,10 +10,12 @@ class ViewCategory extends ViewRecord
 {
     protected static string $resource = CategoryResource::class;
 
+    protected ?string $heading = 'Visualizar Categoria';
+
     protected function getHeaderActions(): array
     {
         return [
-            Actions\EditAction::make(),
+            Actions\EditAction::make()->label('Editar'),
         ];
     }
 }

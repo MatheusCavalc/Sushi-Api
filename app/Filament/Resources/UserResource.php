@@ -17,13 +17,18 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $modelLabel = 'Usuário';
+    protected static ?string $modelLabel = 'Usuários';
 
     protected static ?int $navigationSort = 1;
 
     protected static ?string $navigationGroup = 'Usuários/Admins';
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
+
+    public static function canCreate(): bool
+    {
+        return false;
+    }
 
     public static function form(Form $form): Form
     {
@@ -72,8 +77,10 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()
+                    ->label('Visualizar'),
+                Tables\Actions\EditAction::make()
+                    ->label('Editar'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

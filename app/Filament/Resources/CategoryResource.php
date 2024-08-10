@@ -7,6 +7,7 @@ use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,7 +18,7 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static ?string $modelLabel = 'Categoria';
+    protected static ?string $modelLabel = 'Categorias';
 
     protected static ?int $navigationSort = 2;
 
@@ -69,8 +70,22 @@ class CategoryResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()
+                    ->label('Visualizar'),
+                Tables\Actions\EditAction::make()
+                    ->label('Editar'),
+                Tables\Actions\DeleteAction::make()
+                    ->label('Excluir')
+                    ->modalHeading('Excluir categoria')
+                    ->modalDescription('Tem certeza de que deseja excluir esta categoria? Isto não pode ser desfeito.')
+                    ->modalSubmitActionLabel('Sim, excluir')
+                    ->modalCancelActionLabel('Cancelar')
+                    ->successNotification(
+                        Notification::make()
+                            ->success()
+                            ->title('Categoria excluída')
+                            ->body('A categoria foi excluída com sucesso'),
+                    ),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

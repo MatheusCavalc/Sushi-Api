@@ -10,10 +10,12 @@ class ListComboItems extends ListRecords
 {
     protected static string $resource = ComboItemResource::class;
 
+    protected ?string $heading = 'Itens dos Combos';
+
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label('Criar Item'),
         ];
     }
 }

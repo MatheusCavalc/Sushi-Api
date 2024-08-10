@@ -10,10 +10,12 @@ class ViewComboItem extends ViewRecord
 {
     protected static string $resource = ComboItemResource::class;
 
+    protected ?string $heading = 'Visualizar Item';
+
     protected function getHeaderActions(): array
     {
         return [
-            Actions\EditAction::make(),
+            Actions\EditAction::make()->label('Editar'),
         ];
     }
 }
