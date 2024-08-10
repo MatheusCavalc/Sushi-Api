@@ -896,18 +896,17 @@ class DatabaseSeeder extends Seeder
             ComboItem::create($item);
         }
 
-        $infos =
-            [
-                'store_open' => 1,
-                'whatsapp_number' => '5585996325360',
-                'address' => 'Rua Estado Do Rio, 1112 - Demócrito Rocha',
-                'open_days' => 'Segunda a Domingo', 
-        	 'opening_hours' => '18:00 às 01:00',
-                'social_links' => [
-                    'Instagram' => 'https://instagram.com/sushiakyy/',
-                    'Facebook' => 'https://www.facebook.com/people/Sushi-aky/61559616506599/'
-                ],
-            ];
+        $infos = [
+            'store_open' => 1,
+            'whatsapp_number' => '5585996325360',
+            'address' => 'Rua Estado Do Rio, 1112 - Demócrito Rocha',
+            'open_days' => 'Segunda a Domingo',
+            'opening_hours' => '18:00 às 01:00',
+            'social_links' => [
+                'Instagram' => 'https://instagram.com/sushiakyy/',
+                'Facebook' => 'https://www.facebook.com/people/Sushi-aky/61559616506599/'
+            ],
+        ];
 
         Info::create($infos);
     }

@@ -82,11 +82,11 @@ class ProductResource extends Resource
                     ->label('Preço')
                     ->money()
                     ->sortable(),
+                Tables\Columns\ToggleColumn::make('on_sale')
+                    ->label('Em Promoção'),
                 Tables\Columns\TextColumn::make('quantity')
                     ->label('Quantidade')
                     ->numeric(),
-                Tables\Columns\ToggleColumn::make('on_sale')
-                    ->label('Em Promoção'),
                 Tables\Columns\TextColumn::make('sale_price')
                     ->label('Preço em Promoção')
                     ->money()
