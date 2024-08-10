@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use App\Models\Category;
 use Filament\Notifications\Notification;
+use Filament\Tables\Enums\ActionsPosition;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -126,7 +127,7 @@ class ProductResource extends Resource
                              ->title('Produto excluído')
                              ->body('O produto foi excluído com sucesso'),
                     ),
-            ])
+            ], position: ActionsPosition::BeforeCells)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

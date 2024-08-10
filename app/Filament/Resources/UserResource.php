@@ -60,6 +60,12 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->label('Email')
                     ->searchable(),
+                Tables\Columns\IconColumn::make('is_admin')
+                    ->label('Admin')
+                    ->boolean(),
+                Tables\Columns\IconColumn::make('super_admin')
+                    ->label('Super Admin')
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('email_verified_at')
                     ->label('Email verificado em')
                     ->dateTime()

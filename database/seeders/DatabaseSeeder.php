@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Sushi Aky',
             'email' => 'sushiaky@admin.com',
             'password' => Hash::make('12345678'),
+            'super_admin' => 1,
+            'is_admin' => 1,
         ]);
 
         $categories = [
