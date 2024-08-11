@@ -18,7 +18,7 @@ class ComboItemResource extends Resource
 {
     protected static ?string $model = ComboItem::class;
 
-    protected static ?string $modelLabel = 'Itens dos Combos';
+    protected static ?string $modelLabel = 'Itens de Combos';
 
     protected static ?int $navigationSort = 4;
 
