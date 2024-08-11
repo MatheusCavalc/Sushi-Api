@@ -49,13 +49,22 @@ class InfoResource extends Resource
                 Forms\Components\TextInput::make('opening_hours')
                     ->required()
                     ->label('Horas Abertas'),
-                Forms\Components\KeyValue::make('social_links')
-                    ->required()
-                    ->keyLabel('Rede Social')
-                    ->valueLabel('Link')
-                    ->reorderable()
+                Forms\Components\Repeater::make('social_links')
+                    ->schema([
+                        Forms\Components\TextInput::make('social')
+                            ->label('Rede Social')
+                            ->required(),
+                        Forms\Components\TextInput::make('link')
+                            ->label('Link')
+                            ->required(),
+                        Forms\Components\TextInput::make('user')
+                            ->label('Usuário/@'),
+                    ])
+                    ->label('Redes Sociais')
                     ->columnSpanFull()
-                    ->label('Links das Redes Sociais')
+                    ->columns(3)
+                    ->reorderableWithButtons()
+                    ->reorderable()
                     ->addActionLabel('Adicionar Rede Social'),
             ]);
     }

@@ -905,8 +905,16 @@ class DatabaseSeeder extends Seeder
             'open_days' => 'Segunda a Domingo',
             'opening_hours' => '18:00 às 01:00',
             'social_links' => [
-                'Instagram' => 'https://instagram.com/sushiakyy/',
-                'Facebook' => 'https://www.facebook.com/people/Sushi-aky/61559616506599/'
+                [
+                    'social' => 'Instagram',
+                    'link' => 'https://instagram.com/sushiakyy/',
+                    'user' => '@sushiakyy',
+                ],
+                [
+                    'social' => 'Facebook',
+                    'link' => 'https://www.facebook.com/people/Sushi-aky/61559616506599/',
+                    'user' => 'Sushi-aky',
+                ],
             ],
         ];
 
