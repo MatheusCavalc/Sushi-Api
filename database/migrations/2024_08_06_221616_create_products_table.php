@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained();
             $table->string('image')->nullable();
             $table->string('link_image')->nullable();
+            $table->boolean('on_sell')->default(true); // Produto À venda
             $table->text('description')->nullable();
             $table->string('price');
             $table->integer('quantity')->default(0);

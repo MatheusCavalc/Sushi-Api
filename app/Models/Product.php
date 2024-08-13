@@ -15,6 +15,7 @@ class Product extends Model
         'category_id',
         'image',
         'link_image',
+        'on_sell',
         'description',
         'price',
         'quantity',

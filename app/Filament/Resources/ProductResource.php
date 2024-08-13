@@ -44,6 +44,9 @@ class ProductResource extends Resource
                 //    ->image(),
                 Forms\Components\TextInput::make('link_image')
                     ->label('Link da Imagem'),
+                Forms\Components\Toggle::make('on_sell')
+                    ->label('À Venda')
+                    ->required(),
                 Forms\Components\Textarea::make('description')
                     ->label('Descrição')
                     ->columnSpanFull(),
@@ -80,6 +83,8 @@ class ProductResource extends Resource
                 //Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\ImageColumn::make('link_image')
                     ->label('Link da Imagem'),
+                Tables\Columns\ToggleColumn::make('on_sell')
+                    ->label('À Venda'),
                 Tables\Columns\TextColumn::make('price')
                     ->label('Preço')
                     ->money()
@@ -105,10 +110,16 @@ class ProductResource extends Resource
             ->filters([
                 Tables\Filters\TernaryFilter::make('on_sale')
                     ->label('Em Promoção')
-                    ->placeholder('Todos os Produtos')
+                    //->placeholder('Todos os Produtos')
                     ->trueLabel('Produtos em Promoção')
                     ->falseLabel('Produtos com Preço Padrão')
-                    ->indicator('Produtos')
+                    ->indicator('Produtos'),
+                Tables\Filters\TernaryFilter::make('on_sell')
+                    ->label('À Venda')
+                    //->placeholder('Produtos à Venda')
+                    ->trueLabel('Produtos à Venda')
+                    ->falseLabel('Produtos que não estão à Venda')
+                    ->indicator('Produtos'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make()
@@ -123,9 +134,9 @@ class ProductResource extends Resource
                     ->modalCancelActionLabel('Cancelar')
                     ->successNotification(
                         Notification::make()
-                             ->success()
-                             ->title('Produto excluído')
-                             ->body('O produto foi excluído com sucesso'),
+                            ->success()
+                            ->title('Produto excluído')
+                            ->body('O produto foi excluído com sucesso'),
                     ),
             ], position: ActionsPosition::BeforeCells)
             ->bulkActions([
