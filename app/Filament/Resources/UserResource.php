@@ -79,6 +79,7 @@ class UserResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->searchPlaceholder('Procurar Usuário')
             ->filters([
                 //
             ])

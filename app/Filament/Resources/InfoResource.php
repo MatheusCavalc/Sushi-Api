@@ -94,6 +94,7 @@ class InfoResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->searchPlaceholder('Procurar Info')
             ->filters([
                 //
             ])

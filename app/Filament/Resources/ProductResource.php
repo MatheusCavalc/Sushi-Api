@@ -107,19 +107,20 @@ class ProductResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->searchPlaceholder('Procurar Prato/Produto')
             ->filters([
                 Tables\Filters\TernaryFilter::make('on_sale')
                     ->label('Em Promoção')
                     //->placeholder('Todos os Produtos')
                     ->trueLabel('Produtos em Promoção')
                     ->falseLabel('Produtos com Preço Padrão')
-                    ->indicator('Produtos'),
+                    ->indicator('Filtro'),
                 Tables\Filters\TernaryFilter::make('on_sell')
                     ->label('À Venda')
                     //->placeholder('Produtos à Venda')
                     ->trueLabel('Produtos à Venda')
                     ->falseLabel('Produtos que não estão à Venda')
-                    ->indicator('Produtos'),
+                    ->indicator('Filtro'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make()

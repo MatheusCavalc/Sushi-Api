@@ -61,6 +61,7 @@ class ComboItemResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->searchPlaceholder('Procurar Item')
             ->filters([
                 //
             ])

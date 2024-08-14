@@ -66,6 +66,7 @@ class CategoryResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->searchPlaceholder('Procurar Categoria')
             ->filters([
                 //
             ])
