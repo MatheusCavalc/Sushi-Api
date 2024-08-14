@@ -1,5 +1,18 @@
 <x-filament-panels::page>
     <div class="flex flex-col gap-6">
+
+        <div>
+            <p>
+                O estabelecimento está
+                @if (App\Models\Info::first()->store_open)
+                    <span>Aberto</span>
+                @else
+                    <span>Fechado</span>
+                @endif
+            </p>
+        </div>
+
+        <!-- Table Info -->
         <div class="flex flex-col w-full gap-6 lg:flex-row">
             <div
                 class="w-full p-6 space-y-2 bg-white border border-gray-200 rounded-lg dark:border-gray-700 dark:bg-gray-900 lg:w-1/2">
@@ -38,6 +51,7 @@
             </div>
         </div>
 
+        <!-- Sale Products -->
         <div>
             <div
                 class="w-full p-6 space-y-2 bg-white border border-gray-200 rounded-lg dark:border-gray-700 dark:bg-gray-900">

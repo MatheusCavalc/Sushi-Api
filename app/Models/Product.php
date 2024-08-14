@@ -27,4 +27,14 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function setPriceAttribute($value)
+    {
+        $this->attributes['price'] = str_replace(',', '.', $value);
+    }
+
+    public function setSalePriceAttribute($value)
+    {
+        $this->attributes['sale_price'] = str_replace(',', '.', $value);
+    }
 }
