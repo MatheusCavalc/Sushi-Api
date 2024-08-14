@@ -53,7 +53,6 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->label('Preço')
                     ->required()
-                    ->numeric()
                     ->prefix('$'),
                 Forms\Components\TextInput::make('quantity')
                     ->label('Quantidade')
@@ -65,7 +64,7 @@ class ProductResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('sale_price')
                     ->label('Preço em Promoção')
-                    ->numeric()
+
                     ->prefix('$'),
             ]);
     }
