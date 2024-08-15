@@ -30,11 +30,29 @@ class Product extends Model
 
     public function setPriceAttribute($value)
     {
-        $this->attributes['price'] = str_replace(',', '.', $value);
+        $value = str_replace(',', '.', $value);
+
+        if (!str_contains($value, '.')) {
+            $value .= '.00';
+        }
+
+        $this->attributes['price'] = $value;
     }
 
     public function setSalePriceAttribute($value)
     {
-        $this->attributes['sale_price'] = str_replace(',', '.', $value);
+        // Verifica se o valor é nulo
+        if (is_null($value)) {
+            $this->attributes['sale_price'] = null;
+            return;
+        }
+
+        $value = str_replace(',', '.', $value);
+
+        if (!str_contains($value, '.')) {
+            $value .= '.00';
+        }
+
+        $this->attributes['sale_price'] = $value;
     }
 }

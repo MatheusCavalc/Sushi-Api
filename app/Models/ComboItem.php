@@ -16,6 +16,12 @@ class ComboItem extends Model
 
     public function setPriceAttribute($value)
     {
-        $this->attributes['price'] = str_replace(',', '.', $value);
+        $value = str_replace(',', '.', $value);
+
+        if (!str_contains($value, '.')) {
+            $value .= '.00';
+        }
+
+        $this->attributes['price'] = $value;
     }
 }
