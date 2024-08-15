@@ -36,7 +36,7 @@ class ComboItemResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->label('Preço')
                     ->required()
-                    ->prefix('$'),
+                    ->prefix('R$'),
             ]);
     }
 
@@ -49,7 +49,7 @@ class ComboItemResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
                     ->label('Preço')
-                    ->money()
+                    ->money('brl')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

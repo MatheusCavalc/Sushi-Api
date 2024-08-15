@@ -53,7 +53,7 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->label('Preço')
                     ->required()
-                    ->prefix('$'),
+                    ->prefix('R$'),
                 Forms\Components\TextInput::make('quantity')
                     ->label('Quantidade')
                     ->required()
@@ -64,8 +64,7 @@ class ProductResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('sale_price')
                     ->label('Preço em Promoção')
-
-                    ->prefix('$'),
+                    ->prefix('R$'),
             ]);
     }
 
@@ -86,7 +85,7 @@ class ProductResource extends Resource
                     ->label('À Venda'),
                 Tables\Columns\TextColumn::make('price')
                     ->label('Preço')
-                    ->money()
+                    ->money('brl')
                     ->sortable(),
                 Tables\Columns\ToggleColumn::make('on_sale')
                     ->label('Em Promoção'),
@@ -95,7 +94,7 @@ class ProductResource extends Resource
                     ->numeric(),
                 Tables\Columns\TextColumn::make('sale_price')
                     ->label('Preço em Promoção')
-                    ->money()
+                    ->money('brl')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
