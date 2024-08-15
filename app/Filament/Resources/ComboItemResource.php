@@ -36,7 +36,6 @@ class ComboItemResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->label('Preço')
                     ->required()
-                    ->numeric()
                     ->prefix('$'),
             ]);
     }
